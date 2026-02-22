@@ -1,42 +1,40 @@
-/* =========================================================
-   Punk Planet recreation - Assignment 2
-   Styling file (external CSS)
-   Uses CSS Grid, box model, selectors, pseudo-elements
-   ========================================================= */
+/* style.css
+   Simple, beginner-friendly CSS for Assignment 2
+   - 3 columns using CSS Grid (no tables)
+   - Drop cap effect for first paragraph
+   - Center feature block: spiral + big PAPA M + quote
+*/
 
-/* Basic reset / defaults */
+/* Basic reset */
 * {
-  box-sizing: border-box; /* Helps control width/height with padding and border */
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background-color: #f5f3e8; /* Similar paper tone as original */
-  color: #1a1a1a;
+  background: #f5f3e8; /* paper-like background */
+  color: #111;
   font-family: "Times New Roman", Times, serif;
   line-height: 1.25;
 }
 
-/* Outer page shell to center content */
+/* Center the page and give it a fixed magazine width */
 .page-shell {
   display: flex;
   justify-content: center;
   padding: 24px;
 }
 
-/* Main page area (magazine sheet look) */
 .magazine-page {
   width: 950px;
-  background-color: #f5f3e8;
   padding: 18px 22px 12px 22px;
 }
 
-/* Header area */
+/* Header (kept small so it doesn't ruin magazine look) */
 .page-header {
   margin-bottom: 10px;
 }
 
-/* Keep semantic headings, but visually subtle to preserve magazine look */
 .page-header h1,
 .page-header h2,
 .page-header .subtitle {
@@ -60,42 +58,22 @@ body {
   margin-top: 2px;
 }
 
-/* JavaScript control button */
-.control-btn {
-  margin-top: 8px;
-  padding: 6px 10px;
-  font-size: 12px;
-  border: 1px solid #777;
-  background: #fdfcf6;
-  cursor: pointer;
-}
-
-.control-btn:hover {
-  background: #ece8d8;
-}
-
-/* Shared 3-column layout */
+/* 3-column layout (replaces your old tables) */
 .columns {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Replaces old table columns */
-  gap: 28px; /* Column gutter spacing */
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px; /* gutter space between columns */
   margin-top: 8px;
 }
 
-/* Column text style */
+/* Paragraph style */
 .column p {
   margin: 0 0 8px 0;
   text-align: justify;
   font-size: 13px;
 }
 
-/* Interview credits */
-.credits {
-  margin-top: 8px;
-  margin-bottom: 12px;
-}
-
-/* Headings inside the article body */
+/* Simple heading styles inside columns */
 .column h3 {
   margin: 8px 0 8px 0;
   font-size: 14px;
@@ -109,7 +87,13 @@ body {
   font-weight: bold;
 }
 
-/* Magazine-style drop cap using pseudo-element */
+/* Credits block */
+.credits {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+/* Drop cap for the first paragraph */
 .dropcap::first-letter {
   float: left;
   font-size: 44px;
@@ -119,9 +103,79 @@ body {
   padding-top: 2px;
 }
 
-/* Bold lead question in lower middle column */
-.question-lead {
-  margin-bottom: 10px;
+/* Center feature block (spiral + PAPA M + quote) */
+.center-feature {
+  display: grid;
+  grid-template-columns: 140px 1fr; /* left spiral + right text */
+  align-items: center;
+  gap: 18px;
+  margin: 10px 0 12px 0;
+  padding: 10px 0;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+
+/* Spiral made with borders */
+.spiral {
+  width: 90px;
+  height: 90px;
+  margin-left: 10px;
+  border: 3px solid #111;
+  border-radius: 50%;
+  position: relative;
+}
+
+/* Two inner rings to look more like a spiral */
+.spiral::before,
+.spiral::after {
+  content: "";
+  position: absolute;
+  border: 3px solid #111;
+  border-radius: 50%;
+}
+
+.spiral::before {
+  width: 62px;
+  height: 62px;
+  top: 10px;
+  left: 10px;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.spiral::after {
+  width: 34px;
+  height: 34px;
+  top: 22px;
+  left: 22px;
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+
+/* Right side text */
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.papa-m-title {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 54px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: 0.95;
+}
+
+/* Quote is on ONE line on wide screens */
+.papa-m-quote {
+  margin: 6px 0 0 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 /* Footer */
@@ -134,29 +188,19 @@ body {
   font-size: 13px;
 }
 
-/* =========================================================
-   JavaScript "reading mode" styles
-   JS toggles class .reading-mode on body
-   ========================================================= */
-body.reading-mode {
-  background-color: #ece7d2;
+/* Simple animation helper (used by JS) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-body.reading-mode .magazine-page {
-  background-color: #f8f5e8;
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-body.reading-mode .column p {
-  line-height: 1.45;
-}
-
-body.reading-mode .column h4 {
-  color: #5a2f2f;
-}
-
-/* =========================================================
-   Responsive fallback: stack columns on smaller screens
-   ========================================================= */
+/* Small screens: stack columns and let quote wrap */
 @media (max-width: 1000px) {
   .magazine-page {
     width: 100%;
@@ -166,5 +210,23 @@ body.reading-mode .column h4 {
   .columns {
     grid-template-columns: 1fr;
     gap: 14px;
+  }
+
+  .center-feature {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .spiral {
+    margin-left: 0;
+  }
+
+  .papa-m-title {
+    font-size: 40px;
+  }
+
+  .papa-m-quote {
+    white-space: normal; /* allow wrapping on small screens */
+    font-size: 14px;
   }
 }

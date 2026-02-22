@@ -13,16 +13,11 @@
     <!-- Main page container -->
     <div class="page-shell">
       <main class="magazine-page">
-        <!-- Semantic headings (kept accessible, visually styled small in CSS) -->
+        <!-- Semantic headings (kept small with CSS so layout stays magazine-like) -->
         <header class="page-header">
           <h1>Punk Planet 62</h1>
           <h2>David Pajo Interview</h2>
           <p class="subtitle">Recreated page 40 layout</p>
-
-          <!-- JS button: toggles a "reading mode" effect -->
-          <button id="readingModeBtn" class="control-btn" type="button">
-            Toggle reading mode
-          </button>
         </header>
 
         <!-- Top text block in 3 columns (CSS Grid, not tables) -->
@@ -114,6 +109,20 @@
 
             <h4>Were you scared the first time you sang on a recording?</h4>
             <p>Yeah.</p>
+          </div>
+        </section>
+
+        <!-- Center feature block (replaces image) -->
+        <section class="center-feature" aria-label="Papa M feature title">
+          <!-- Spiral shape (styled in CSS, animated in JavaScript) -->
+          <div id="spiral" class="spiral"></div>
+
+          <!-- Large title and quote -->
+          <div class="feature-text">
+            <p id="papaMTitle" class="papa-m-title">PAPA M</p>
+            <p class="papa-m-quote">
+              I realize I'm not interested in being in the pop music world at all. That's not my world.
+            </p>
           </div>
         </section>
 

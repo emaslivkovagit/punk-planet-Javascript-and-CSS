@@ -1,20 +1,33 @@
-/* =========================================================
-   Punk Planet recreation - Assignment 2
-   JavaScript file
-   Function: toggle reading mode
-   ========================================================= */
+/* script.js
+   Simple, beginner-friendly JavaScript for Assignment 2
 
-// Wait until the HTML document is fully loaded
+   What it does:
+   1) Makes the "PAPA M" title fade in when the page loads
+   2) Slowly rotates the spiral (no button needed)
+*/
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Select the button by its ID
-  const readingModeBtn = document.getElementById("readingModeBtn");
+  // Get the spiral and title elements by their IDs
+  var spiral = document.getElementById("spiral");
+  var papaMTitle = document.getElementById("papaMTitle");
 
-  // Safety check in case the button is missing
-  if (!readingModeBtn) return;
+  // Fade in the PAPA M title
+  if (papaMTitle) {
+    papaMTitle.classList.add("fade-in");
 
-  // Add click event listener to the button
-  readingModeBtn.addEventListener("click", function () {
-    // Toggle a CSS class on the body
-    document.body.classList.toggle("reading-mode");
-  });
+    // Small delay so the transition is visible
+    setTimeout(function () {
+      papaMTitle.classList.add("visible");
+    }, 80);
+  }
+
+  // Rotate the spiral slowly
+  if (spiral) {
+    var angle = 0;
+
+    setInterval(function () {
+      angle = angle + 1; // increase rotation a little bit
+      spiral.style.transform = "rotate(" + angle + "deg)";
+    }, 80);
+  }
 });
