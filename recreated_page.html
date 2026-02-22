@@ -4,23 +4,13 @@
     <meta charset="utf-8" />
     <title>Punk Planet 62 - Page 40 (Recreated)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- External CSS file for layout and styling -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <!-- Main page container -->
     <div class="page-shell">
       <main class="magazine-page">
-        <!-- Semantic headings (kept small with CSS so layout stays magazine-like) -->
-        <header class="page-header">
-          <h1>Punk Planet 62</h1>
-          <h2>David Pajo Interview</h2>
-          <p class="subtitle">Recreated page 40 layout</p>
-        </header>
-
-        <!-- Top text block in 3 columns (CSS Grid, not tables) -->
+        <!-- Top text block in 3 columns -->
         <section class="columns columns-top">
           <div class="column">
             <p class="dropcap">
@@ -57,8 +47,6 @@
               Interview by <strong>Jeff Guntzel</strong><br />
               Illustration by <strong>Dustin Mertz</strong>
             </p>
-
-            <h3>Interview</h3>
 
             <h4>Why move to New York City?</h4>
             <p>
@@ -103,27 +91,19 @@
               That surprises me. You sing with an almost effortless voice. You make
               it seem easy!
             </h4>
-            <p>
-              It's just hard to get me to do it. I don't trust my own voice.
-            </p>
+            <p>It's just hard to get me to do it. I don't trust my own voice.</p>
 
             <h4>Were you scared the first time you sang on a recording?</h4>
             <p>Yeah.</p>
           </div>
         </section>
 
-        <!-- Center feature block (replaces image) -->
-        <section class="center-feature" aria-label="Papa M feature title">
-          <!-- Spiral shape (styled in CSS, animated in JavaScript) -->
-          <div id="spiral" class="spiral"></div>
-
-          <!-- Large title and quote -->
-          <div class="feature-text">
-            <p id="papaMTitle" class="papa-m-title">PAPA M</p>
-            <p class="papa-m-quote">
-              I realize I'm not interested in being in the pop music world at all. That's not my world.
-            </p>
-          </div>
+        <!-- Middle title/quote block (no spiral, no lines) -->
+        <section class="papa-m-block" aria-label="Papa M quote">
+          <p id="papaMTitle" class="papa-m-title">PAPA M</p>
+          <p class="papa-m-quote">
+            I realize I'm not interested in being in the pop music world at all. That's not my world.
+          </p>
         </section>
 
         <!-- Bottom text block in 3 columns -->
@@ -192,9 +172,7 @@
               I have tons of tapes of me singing that I'd never release.
             </p>
 
-            <h4>
-              Now you sing on most of your songs. When did the confidence creep in?
-            </h4>
+            <h4>Now you sing on most of your songs. When did the confidence creep in?</h4>
             <p>
               It was actually <i>Papa M Sings</i>, which was recorded right after a
               long tour where I was playing all instrumental stuff. Most of the
@@ -205,14 +183,12 @@
           </div>
         </section>
 
-        <!-- Footer line -->
         <footer class="page-footer">
           <p><strong>40</strong> PUNK PLANET</p>
         </footer>
       </main>
     </div>
 
-    <!-- External JavaScript file -->
     <script src="script.js"></script>
   </body>
 </html>

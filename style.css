@@ -2,7 +2,7 @@
    Simple, beginner-friendly CSS for Assignment 2
    - 3 columns using CSS Grid (no tables)
    - Drop cap effect for first paragraph
-   - Center feature block: spiral + big PAPA M + quote
+   - Middle PAPA M title + quote block
 */
 
 /* Basic reset */
@@ -30,35 +30,7 @@ body {
   padding: 18px 22px 12px 22px;
 }
 
-/* Header (kept small so it doesn't ruin magazine look) */
-.page-header {
-  margin-bottom: 10px;
-}
-
-.page-header h1,
-.page-header h2,
-.page-header .subtitle {
-  margin: 0;
-  font-weight: normal;
-  color: #444;
-}
-
-.page-header h1 {
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-
-.page-header h2 {
-  font-size: 13px;
-  margin-top: 2px;
-}
-
-.page-header .subtitle {
-  font-size: 12px;
-  margin-top: 2px;
-}
-
-/* 3-column layout (replaces your old tables) */
+/* 3-column layout (replaces old tables) */
 .columns {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -74,13 +46,6 @@ body {
 }
 
 /* Simple heading styles inside columns */
-.column h3 {
-  margin: 8px 0 8px 0;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
 .column h4 {
   margin: 10px 0 4px 0;
   font-size: 14px;
@@ -103,79 +68,38 @@ body {
   padding-top: 2px;
 }
 
-/* Center feature block (spiral + PAPA M + quote) */
-.center-feature {
-  display: grid;
-  grid-template-columns: 140px 1fr; /* left spiral + right text */
-  align-items: center;
-  gap: 18px;
-  margin: 10px 0 12px 0;
-  padding: 10px 0;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-}
+/* Middle PAPA M block (no spiral, no lines) */
+.papa-m-block {
+  margin: 8px 0 12px 0;
+  padding: 2px 0 4px 0;
 
-/* Spiral made with borders */
-.spiral {
-  width: 90px;
-  height: 90px;
-  margin-left: 10px;
-  border: 3px solid #111;
-  border-radius: 50%;
-  position: relative;
-}
-
-/* Two inner rings to look more like a spiral */
-.spiral::before,
-.spiral::after {
-  content: "";
-  position: absolute;
-  border: 3px solid #111;
-  border-radius: 50%;
-}
-
-.spiral::before {
-  width: 62px;
-  height: 62px;
-  top: 10px;
-  left: 10px;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-}
-
-.spiral::after {
-  width: 34px;
-  height: 34px;
-  top: 22px;
-  left: 22px;
-  border-left-color: transparent;
-  border-top-color: transparent;
-}
-
-/* Right side text */
-.feature-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 0;
+  /* push it to the right side, like in the magazine */
+  margin-left: 34%;
 }
 
 .papa-m-title {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 54px;
+  font-size: 64px; /* big title */
   font-weight: 900;
   letter-spacing: 2px;
   line-height: 0.95;
+  text-align: left;
 }
 
-/* Quote is on ONE line on wide screens */
+/* Quote is still large, but smaller than PAPA M */
 .papa-m-quote {
-  margin: 6px 0 0 0;
+  margin: 4px 0 0 0;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 1.1;
-  white-space: nowrap;
+  font-size: 26px;
+  line-height: 1.05;
+  white-space: nowrap; /* one line on wide screens */
+  text-align: left;
+}
+
+/* Bold lead question in lower middle column */
+.question-lead {
+  margin-bottom: 10px;
 }
 
 /* Footer */
@@ -188,7 +112,34 @@ body {
   font-size: 13px;
 }
 
-/* Simple animation helper (used by JS) */
+/* Links (for index/reflection pages too) */
+a {
+  color: #111;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Images (for index page cover image) */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lists (for index/reflection pages) */
+.column ul {
+  margin: 0 0 8px 18px;
+  padding: 0;
+  font-size: 13px;
+}
+
+.column li {
+  margin-bottom: 4px;
+}
+
+/* Simple fade-in helper used by JavaScript */
 .fade-in {
   opacity: 0;
   transform: translateY(4px);
@@ -200,7 +151,7 @@ body {
   transform: translateY(0);
 }
 
-/* Small screens: stack columns and let quote wrap */
+/* Small screens: stack columns and allow quote to wrap */
 @media (max-width: 1000px) {
   .magazine-page {
     width: 100%;
@@ -212,12 +163,7 @@ body {
     gap: 14px;
   }
 
-  .center-feature {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .spiral {
+  .papa-m-block {
     margin-left: 0;
   }
 
@@ -226,7 +172,7 @@ body {
   }
 
   .papa-m-quote {
-    white-space: normal; /* allow wrapping on small screens */
-    font-size: 14px;
+    font-size: 16px;
+    white-space: normal; /* allow wrapping on smaller screens */
   }
 }
