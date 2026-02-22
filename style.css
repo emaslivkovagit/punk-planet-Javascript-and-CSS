@@ -1,0 +1,170 @@
+/* =========================================================
+   Punk Planet recreation - Assignment 2
+   Styling file (external CSS)
+   Uses CSS Grid, box model, selectors, pseudo-elements
+   ========================================================= */
+
+/* Basic reset / defaults */
+* {
+  box-sizing: border-box; /* Helps control width/height with padding and border */
+}
+
+body {
+  margin: 0;
+  background-color: #f5f3e8; /* Similar paper tone as original */
+  color: #1a1a1a;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.25;
+}
+
+/* Outer page shell to center content */
+.page-shell {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* Main page area (magazine sheet look) */
+.magazine-page {
+  width: 950px;
+  background-color: #f5f3e8;
+  padding: 18px 22px 12px 22px;
+}
+
+/* Header area */
+.page-header {
+  margin-bottom: 10px;
+}
+
+/* Keep semantic headings, but visually subtle to preserve magazine look */
+.page-header h1,
+.page-header h2,
+.page-header .subtitle {
+  margin: 0;
+  font-weight: normal;
+  color: #444;
+}
+
+.page-header h1 {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.page-header h2 {
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.page-header .subtitle {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* JavaScript control button */
+.control-btn {
+  margin-top: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  border: 1px solid #777;
+  background: #fdfcf6;
+  cursor: pointer;
+}
+
+.control-btn:hover {
+  background: #ece8d8;
+}
+
+/* Shared 3-column layout */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Replaces old table columns */
+  gap: 28px; /* Column gutter spacing */
+  margin-top: 8px;
+}
+
+/* Column text style */
+.column p {
+  margin: 0 0 8px 0;
+  text-align: justify;
+  font-size: 13px;
+}
+
+/* Interview credits */
+.credits {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+/* Headings inside the article body */
+.column h3 {
+  margin: 8px 0 8px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.column h4 {
+  margin: 10px 0 4px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Magazine-style drop cap using pseudo-element */
+.dropcap::first-letter {
+  float: left;
+  font-size: 44px;
+  line-height: 0.9;
+  font-weight: bold;
+  padding-right: 4px;
+  padding-top: 2px;
+}
+
+/* Bold lead question in lower middle column */
+.question-lead {
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.page-footer {
+  margin-top: 8px;
+}
+
+.page-footer p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* =========================================================
+   JavaScript "reading mode" styles
+   JS toggles class .reading-mode on body
+   ========================================================= */
+body.reading-mode {
+  background-color: #ece7d2;
+}
+
+body.reading-mode .magazine-page {
+  background-color: #f8f5e8;
+}
+
+body.reading-mode .column p {
+  line-height: 1.45;
+}
+
+body.reading-mode .column h4 {
+  color: #5a2f2f;
+}
+
+/* =========================================================
+   Responsive fallback: stack columns on smaller screens
+   ========================================================= */
+@media (max-width: 1000px) {
+  .magazine-page {
+    width: 100%;
+    max-width: 950px;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
