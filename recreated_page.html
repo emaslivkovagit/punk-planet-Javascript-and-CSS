@@ -1,54 +1,69 @@
 <!doctype html>
+<!-- HTML5 doctype -->
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Punk Planet 62 - Page 40 (Recreated)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Punk Planet 62 - Page 40 (Recreated)</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
+    <!-- Page shell centers the content horizontally -->
     <div class="page-shell">
       <main class="magazine-page">
-        <!-- Top text block in 3 columns -->
-        <section class="columns columns-top">
+
+        <!-- h1 is hidden visually but required for correct heading hierarchy -->
+        <!-- Feedback from A1: do not skip heading levels (h1 before h3) -->
+        <h1 class="visually-hidden">Papa M Interview — Punk Planet Issue 62, Page 40</h1>
+
+        <!-- TOP THREE-COLUMN SECTION -->
+        <!-- CSS Grid replaces the old HTML table layout (assignment requirement) -->
+        <section class="columns">
+
+          <!-- COLUMN 1 -->
           <div class="column">
+            <!-- .dropcap uses CSS ::first-letter pseudo-element for the large A -->
             <p class="dropcap">
               After a recent show in Denver, a young bearded fan approached David
               Pajo—Papa M for those of you who have not been keeping track—and
-              offered him some money. <q>This is for all the music that I've downloaded from you.</q>
-              <q>Keep it,</q> Pajo replied. Not satisfied, the bearded fan opened a
-              bag full of pills—<q>Well, can I give you some pills or something?</q>
-              <q>No, man,</q> Pajo laughed, turning him down.
-              <q>Really, I do the same thing.</q>
+              offered him some money. <q>This is for all the music that I've
+              downloaded from you.</q> <q>Keep it,</q> Pajo replied. Not satisfied,
+              the bearded fan opened a bag full of pills—<q>Well, can I give you
+              some pills or something?</q> <q>No, man,</q> Pajo laughed, turning him
+              down. <q>Really, I do the same thing.</q>
             </p>
-
             <p>
               As Pajo tells the story at a café on Manhattan's Lower East Side, I
               laugh. After all, it's a funny story. But it's also a subtle reminder
               that the people that make the records are fans too. Pajo is no
               exception. Our breakfast meeting was supposed to be an interview, but
               we talked as much about other people's music as we did about his. At
-              the end of the interview, Pajo apologized sheepishly,
-              <q>Sorry for rambling, I'm afraid it's going to be all about the Mekons and Dylan.</q>
-              Just a few years ago the apology would have surprised me. After all,
-              it's a mighty long toss from Dylan's <i>Self Portrait</i> to Slint's
+              the end of the interview, Pajo apologized sheepishly, <q>Sorry for
+              rambling, I'm afraid it's going to be all about the Mekons and
+              Dylan.</q> Just a few years ago the apology would have surprised me.
+              After all, it's a mighty long toss from Dylan's <i>Self Portrait</i>
+              to Slint's
             </p>
           </div>
 
+          <!-- COLUMN 2 -->
           <div class="column">
             <p>
               quirky folk songs are a perfect soundtrack for the Louisville of my
               mind—he left his long-time home and headed for New York City with
               little more than his guitar.
             </p>
-
             <p class="credits">
               Interview by <strong>Jeff Guntzel</strong><br />
               Illustration by <strong>Dustin Mertz</strong>
             </p>
 
-            <h4>Why move to New York City?</h4>
+            <!-- h2 hidden: required before h3 for correct hierarchy -->
+            <h2 class="visually-hidden">Interview Questions</h2>
+
+            <!-- h3 used for interview questions (was h4 in A1 — fixed per feedback) -->
+            <h3>Why move to New York City?</h3>
             <p>
               Just to play music and be around friends. I mostly wanted to get out
               of Louisville. Of all my friends that I grew up with, there are only a
@@ -58,7 +73,7 @@
               on. I needed some of that; I need a year of that.
             </p>
 
-            <h4>Are you working on Papa M music?</h4>
+            <h3>Are you working on Papa M music?</h3>
             <p>
               Right now I'm working on stuff that I think is going to be solo stuff,
               but I don't know if I'm going to call it Papa M or not. The new stuff
@@ -66,9 +81,11 @@
               [<i>laughs</i>]
             </p>
 
-            <h4>When you first started using the name, it</h4>
+            <!-- Question is cut off mid-sentence — intentional, matching the magazine -->
+            <h3>When you first started using the name, it</h3>
           </div>
 
+          <!-- COLUMN 3 -->
           <div class="column">
             <p>
               I think I'm getting back into that again. I got really into
@@ -76,38 +93,37 @@
               to write traditional type songs, like verse-chorus type songs, doesn't
               really come naturally to me.
             </p>
-
-            <h4>Really?</h4>
+            <h3>Really?</h3>
             <p>Yeah, it's really hard.</p>
 
-            <h4>Are you singing on the stuff you're working on now?</h4>
+            <h3>Are you singing on the stuff you're working on now?</h3>
             <p>
               Yeah, there's a little bit of that. That's actually the hardest part.
               The lyrics and all that just drive me insane—it just doesn't come
               naturally to me.
             </p>
 
-            <h4>
-              That surprises me. You sing with an almost effortless voice. You make
-              it seem easy!
-            </h4>
+            <h3>That surprises me. You sing with an almost effortless voice. You make it seem easy!</h3>
             <p>It's just hard to get me to do it. I don't trust my own voice.</p>
 
-            <h4>Were you scared the first time you sang on a recording?</h4>
+            <h3>Were you scared the first time you sang on a recording?</h3>
             <p>Yeah.</p>
           </div>
         </section>
 
-        <!-- Middle title/quote block (no spiral, no lines) -->
-        <section class="papa-m-block" aria-label="Papa M quote">
-          <p id="papaMTitle" class="papa-m-title">PAPA M</p>
+        <!-- PAPA M BLOCK: full width, same alignment as the columns -->
+        <section class="papa-m-block">
+          <p class="papa-m-title">PAPA M</p>
           <p class="papa-m-quote">
-            I realize I'm not interested in being in the pop music world at all. That's not my world.
+            I realize I'm not interested in being in the pop music world at all.
+            That's not my world.
           </p>
         </section>
 
-        <!-- Bottom text block in 3 columns -->
-        <section class="columns columns-bottom">
+        <!-- BOTTOM THREE-COLUMN SECTION -->
+        <section class="columns">
+
+          <!-- COLUMN 1 -->
           <div class="column">
             <p>
               <i>Spiderland.</i> Pajo played guitar in the Louisville band
@@ -116,16 +132,14 @@
               two records. He has been called to play with Stereolab, Royal Trux,
               and longtime Louisville compadre Will Oldham.
             </p>
-
             <p>
               All along—for a decade now—Pajo has been making his own music under
-              variations of the moniker <q>M.</q> There was
-              <q>M is the Thirteenth Letter,</q> <q>Aerial M,</q> and more recently
-              <q>Papa M.</q> The vast majority of the <q>M</q> releases were of the
-              liquid, ethereal variety familiar to Slint or Tortoise fans. Then he
-              started singing, and everything changed.
+              variations of the moniker <q>M.</q> There was <q>M is the Thirteenth
+              Letter,</q> <q>Aerial M,</q> and more recently <q>Papa M.</q> The
+              vast majority of the <q>M</q> releases were of the liquid, ethereal
+              variety familiar to Slint or Tortoise fans. Then he started singing,
+              and everything changed.
             </p>
-
             <p>
               With his recent Papa M recordings, Pajo has invented a kind of
               otherworldly folk music. He takes freely from a rich tradition, but
@@ -134,7 +148,9 @@
             </p>
           </div>
 
+          <!-- COLUMN 2 -->
           <div class="column">
+            <!-- Bold continuation of the question cut off in the top section -->
             <p class="question-lead">
               <strong>
                 seemed like it was a way of carving out, or discovering, your
@@ -142,18 +158,16 @@
                 be something <i>other</i> than Papa M?
               </strong>
             </p>
-
             <p>
-              When it started out, I wanted to do my own thing and I wanted to do it
-              all myself—I wanted to play all the instruments; I wanted to record it.
-              I didn't know anything about recording or microphones, I was just going
-              to teach myself. Then I got excited about singing and trying to write
-              songs with words. And then I got more into electronica type stuff. It
-              seems like it's always changing. It's almost like I get bored really
-              easily or something.
+              When it started out, I wanted to do my own thing and I wanted to do
+              it all myself—I wanted to play all the instruments; I wanted to record
+              it. I didn't know anything about recording or microphones, I was just
+              going to teach myself. Then I got excited about singing and trying to
+              write songs with words. And then I got more into electronica type
+              stuff. It seems like it's always changing. It's almost like I get
+              bored really easily or something.
             </p>
-
-            <h4>And are you changing again?</h4>
+            <h3>And are you changing again?</h3>
             <p>
               I don't know how it's going to end up, but right now the songs are
               getting more dissonant again. When I was younger I was into
@@ -161,18 +175,18 @@
             </p>
           </div>
 
+          <!-- COLUMN 3 -->
           <div class="column">
-            <h4>Did you run it by friends?</h4>
+            <h3>Did you run it by friends?</h3>
             <p>
               Yeah, I recorded myself on a Walkman. I think I played it for Will
               [Oldham] and he really liked it and thought it should be on the single
               I was doing, so I put it on there. I never even thought about singing
-              and then I thought,
-              <q>Well, this is a territory that I've never really messed with, maybe I should try it.</q>
-              I have tons of tapes of me singing that I'd never release.
+              and then I thought, <q>Well, this is a territory that I've never
+              really messed with, maybe I should try it.</q> I have tons of tapes
+              of me singing that I'd never release.
             </p>
-
-            <h4>Now you sing on most of your songs. When did the confidence creep in?</h4>
+            <h3>Now you sing on most of your songs. When did the confidence creep in?</h3>
             <p>
               It was actually <i>Papa M Sings</i>, which was recorded right after a
               long tour where I was playing all instrumental stuff. Most of the
@@ -183,12 +197,12 @@
           </div>
         </section>
 
+        <!-- Page footer with page number -->
         <footer class="page-footer">
           <p><strong>40</strong> PUNK PLANET</p>
         </footer>
+
       </main>
     </div>
 
-    <script src="script.js"></script>
-  </body>
-</html>
+    <scri

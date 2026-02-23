@@ -1,178 +1,176 @@
-/* style.css
-   Simple, beginner-friendly CSS for Assignment 2
-   - 3 columns using CSS Grid (no tables)
-   - Drop cap effect for first paragraph
-   - Middle PAPA M title + quote block
-*/
+/* style.css — Assignment 2, Punk Planet Page 40
+   Simple CSS to recreate the magazine layout.
+   Concepts used: box model, selectors, inheritance,
+   pseudo-elements, grid layout, media query. */
 
-/* Basic reset */
+/* Reset: removes default browser margin/padding */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+/* Body: sets global font and background color.
+   Child elements inherit font-family and color. */
 body {
-  margin: 0;
-  background: #f5f3e8; /* paper-like background */
+  background-color: #f5f3e8;
   color: #111;
   font-family: "Times New Roman", Times, serif;
-  line-height: 1.25;
+  font-size: 13px;
+  line-height: 1.3;
 }
 
-/* Center the page and give it a fixed magazine width */
+/* Centers the page horizontally */
 .page-shell {
   display: flex;
   justify-content: center;
   padding: 24px;
 }
 
+/* Fixed magazine width with inner padding */
 .magazine-page {
   width: 950px;
-  padding: 18px 22px 12px 22px;
+  padding: 20px 24px;
 }
 
-/* 3-column layout (replaces old tables) */
+/* Three equal columns using CSS Grid (replaces old table layout) */
 .columns {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 28px; /* gutter space between columns */
-  margin-top: 8px;
+  gap: 28px;
+  margin-bottom: 10px;
 }
 
-/* Paragraph style */
+/* Justified text in all column paragraphs */
 .column p {
-  margin: 0 0 8px 0;
   text-align: justify;
+  margin-bottom: 8px;
+}
+
+/* Interview question headings — bold, same size as body text */
+.column h3 {
   font-size: 13px;
-}
-
-/* Simple heading styles inside columns */
-.column h4 {
-  margin: 10px 0 4px 0;
-  font-size: 14px;
   font-weight: bold;
+  margin: 10px 0 3px 0;
 }
 
-/* Credits block */
-.credits {
-  margin-top: 8px;
-  margin-bottom: 12px;
-}
-
-/* Drop cap for the first paragraph */
+/* Drop cap: large decorative first letter using pseudo-element */
 .dropcap::first-letter {
   float: left;
-  font-size: 44px;
-  line-height: 0.9;
+  font-size: 52px;
   font-weight: bold;
-  padding-right: 4px;
-  padding-top: 2px;
+  line-height: 0.82;
+  padding-right: 3px;
 }
 
-/* Middle PAPA M block (no spiral, no lines) */
-.papa-m-block {
+/* Credits line spacing */
+.credits {
   margin: 8px 0 12px 0;
-  padding: 2px 0 4px 0;
-
-  /* push it to the right side, like in the magazine */
-  margin-left: 34%;
+  line-height: 1.5;
 }
 
+/* PAPA M full-width block — aligns with columns */
+.papa-m-block {
+  margin: 6px 0 10px 0;
+}
+
+/* Large bold PAPA M title in sans-serif for contrast */
 .papa-m-title {
-  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 64px; /* big title */
+  font-size: 72px;
   font-weight: 900;
-  letter-spacing: 2px;
-  line-height: 0.95;
-  text-align: left;
+  letter-spacing: 4px;
+  line-height: 0.9;
 }
 
-/* Quote is still large, but smaller than PAPA M */
+/* Pull quote below the title */
 .papa-m-quote {
-  margin: 4px 0 0 0;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 26px;
-  line-height: 1.05;
-  white-space: nowrap; /* one line on wide screens */
-  text-align: left;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 6px;
 }
 
-/* Bold lead question in lower middle column */
+/* Bold question continuation in lower middle column */
 .question-lead {
   margin-bottom: 10px;
 }
 
-/* Footer */
+/* Footer with thin top border like the magazine */
 .page-footer {
-  margin-top: 8px;
+  margin-top: 10px;
+  border-top: 1px solid #111;
+  padding-top: 6px;
 }
 
-.page-footer p {
-  margin: 0;
-  font-size: 13px;
+/* Visually hidden: hides h1/h2 from view but keeps semantic structure */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 
-/* Links (for index/reflection pages too) */
-a {
-  color: #111;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-/* Images (for index page cover image) */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Lists (for index/reflection pages) */
-.column ul {
-  margin: 0 0 8px 18px;
-  padding: 0;
-  font-size: 13px;
-}
-
-.column li {
-  margin-bottom: 4px;
-}
-
-/* Simple fade-in helper used by JavaScript */
-.fade-in {
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Small screens: stack columns and allow quote to wrap */
+/* On small screens: stack columns vertically */
 @media (max-width: 1000px) {
-  .magazine-page {
-    width: 100%;
-    max-width: 950px;
-  }
+  .magazine-page { width: 100%; }
+  .columns { grid-template-columns: 1fr; }
+  .papa-m-title { font-size: 42px; }
+}
 
-  .columns {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
 
-  .papa-m-block {
-    margin-left: 0;
-  }
+/* -----------------------------------------------
+   INDEX PAGE STYLES
+   Used only on index.html via .index-page wrapper
+----------------------------------------------- */
 
-  .papa-m-title {
-    font-size: 40px;
-  }
+/* Centers the index content and limits its width */
+.index-page {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  text-align: center;
+}
 
-  .papa-m-quote {
-    font-size: 16px;
-    white-space: normal; /* allow wrapping on smaller screens */
-  }
+/* Main heading on index page */
+.index-page h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+/* Nav and section headings */
+.index-page h2,
+.index-page h3 {
+  font-size: 15px;
+  margin: 20px 0 8px 0;
+}
+
+/* Lists left-aligned inside the centered container */
+.index-page ul {
+  display: inline-block;
+  text-align: left;
+  margin-bottom: 12px;
+  line-height: 2;
+}
+
+/* Cover image sizing */
+.index-page img {
+  max-width: 280px;
+  margin: 16px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tagline under the h1 */
+.index-page .tagline {
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+/* Back to top link spacing */
+.index-page p {
+  margin-top: 20px;
 }
