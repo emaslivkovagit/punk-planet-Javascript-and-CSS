@@ -74,21 +74,23 @@ body {
   margin: 6px 0 10px 0;
 }
 
-/* Large bold PAPA M title in sans-serif for contrast */
+/* Large bold PAPA M title — right-aligned to match the magazine */
 .papa-m-title {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 72px;
   font-weight: 900;
   letter-spacing: 4px;
   line-height: 0.9;
+  text-align: right;
 }
 
-/* Pull quote below the title */
+/* Pull quote — larger so it fills the full width */
 .papa-m-quote {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 22px;
   font-weight: bold;
-  margin-top: 6px;
+  margin-top: 10px;
+  text-align: justify;
 }
 
 /* Bold question continuation in lower middle column */
@@ -96,10 +98,9 @@ body {
   margin-bottom: 10px;
 }
 
-/* Footer with thin top border like the magazine */
+/* Page footer — no border */
 .page-footer {
   margin-top: 10px;
-  border-top: 1px solid #111;
   padding-top: 6px;
 }
 
