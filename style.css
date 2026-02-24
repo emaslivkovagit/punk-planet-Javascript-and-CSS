@@ -1,17 +1,15 @@
 /* style.css — Assignment 2, Punk Planet Page 40
-   Simple CSS to recreate the magazine layout.
-   Concepts used: box model, selectors, inheritance,
-   pseudo-elements, grid layout, media query. */
+   Using CSS to recreate the magazine layout.
+   A stylist for the HTML structure. */
 
-/* Reset: removes default browser margin/padding */
+/* Resetting every single element of the page: this removes default browser margin/padding */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Body: sets global font and background color.
-   Child elements inherit font-family and color. */
+/* Body: setting the global font (font stack) and background color.*/
 body {
   background-color: #f5f3e8;
   color: #111;
@@ -20,24 +18,24 @@ body {
   line-height: 1.3;
 }
 
-/* Centers the page horizontally */
+/* for all the html elements with class page-shell. To center the page horizontally */
 .page-shell {
-  display: flex;
+  display: flex; /*turns on flexbox, laxout tool */
   justify-content: center;
   padding: 24px;
 }
 
-/* Fixed magazine width with inner padding */
+/* Fixed magazine width with inner padding, resembling a real magazine */
 .magazine-page {
   width: 950px;
   padding: 20px 24px;
 }
 
-/* Three equal columns using CSS Grid (replaces old table layout) */
+/* Three equal columns using CSS Grid to replace the table layout */
 .columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 28px;
+  display: grid; /*turns on the css grid for magazine style layout */
+  grid-template-columns: 1fr 1fr 1fr; /* 3 columns, each taking up one equal fraction of space */
+  gap: 28px; /* adding a gutter in between the columns */
   margin-bottom: 10px;
 }
 
@@ -47,16 +45,16 @@ body {
   margin-bottom: 8px;
 }
 
-/* Interview question headings — bold, same size as body text */
+/* Making the interview question headings bold, same size as body text */
 .column h3 {
   font-size: 13px;
   font-weight: bold;
   margin: 10px 0 3px 0;
 }
 
-/* Drop cap: large decorative first letter using pseudo-element */
+/* Drop cap: large decorative first letter ("A") without using a separate html tag */
 .dropcap::first-letter {
-  float: left;
+  float: left; /* pull "A" out of the normal text flow */
   font-size: 52px;
   font-weight: bold;
   line-height: 0.82;
@@ -74,19 +72,19 @@ body {
   margin: 6px 0 10px 0;
 }
 
-/* Large bold PAPA M title — right-aligned to match the magazine */
+/* Large bold PAPA M title — right-aligned to match the magazine layout */
 .papa-m-title {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 72px;
-  font-weight: 900;
+  font-weight: 900; /* as bold as possible */
   letter-spacing: 4px;
   line-height: 0.9;
   text-align: right;
 }
 
-/* Pull quote — larger so it fills the full width */
+/* Quote: filling the full width, under the PAPA M title */
 .papa-m-quote {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 22px;
   font-weight: bold;
   margin-top: 10px;
@@ -98,13 +96,13 @@ body {
   margin-bottom: 10px;
 }
 
-/* Page footer — no border */
+/* Page footer — without a border */
 .page-footer {
   margin-top: 10px;
   padding-top: 6px;
 }
 
-/* Visually hidden: hides h1/h2 from view but keeps semantic structure */
+/* Visually hidden: ensures that h1/h2 are hidden from view but keeps semantic structure */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -114,23 +112,20 @@ body {
   white-space: nowrap;
 }
 
-/* On small screens: stack columns vertically */
+/* On small screens such as phones: stack columns vertically */
 @media (max-width: 1000px) {
   .magazine-page { width: 100%; }
   .columns { grid-template-columns: 1fr; }
   .papa-m-title { font-size: 42px; }
 }
 
-
-/* -----------------------------------------------
-   INDEX PAGE STYLES
-   Used only on index.html via .index-page wrapper
------------------------------------------------ */
+/* INDEX PAGE STYLES
+   Used only on index.html via .index-page wrapper */
 
 /* Centers the index content and limits its width */
 .index-page {
   max-width: 600px;
-  margin: 40px auto;
+  margin: 40px auto; /* center the box */
   padding: 24px;
   text-align: center;
 }
